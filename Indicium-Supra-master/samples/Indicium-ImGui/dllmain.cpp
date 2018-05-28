@@ -46,12 +46,13 @@ using Poco::Path;
 #include <sstream>      // std::stringstream
 
 //CppWrapper includes
-//#pragma comment(lib, "GGXrdWakeupDPUtilCppWrapper.lib")
 //#include <C:\Work\rev2-wakeup-tool\GGXrdWakeupDPUtilCppWrapper\ReversalToolWrapper.h>
 
-#pragma comment(lib, "GGRev2CrmDllCppWrapper.lib")
+/*
 #include "C:\Work\GGRev2ComboRecipeManager\GGRev2CrmDllCppWrapper\ComboRecipeWrapper.h"
 #include "C:\Work\GGRev2ComboRecipeManager\GGRev2CrmDllCppWrapper\ComboRecipeManagerWrapper.h"
+*/
+
 
 typedef void functionPtr();
 t_WindowProc OriginalWindowProc = nullptr;
@@ -418,8 +419,8 @@ void RenderScene()
 			//ReversalToolWrapper* reversalTool = new ReversalToolWrapper();
 			//reversalTool->AttachToProcess();
 
-			ComboRecipeManagerWrapper* c = new ComboRecipeManagerWrapper();
-			c->ReadComboRecipes();
+			//ComboRecipeManagerWrapper* c = new ComboRecipeManagerWrapper();
+			//c->ReadComboRecipes();
 		}
 		
 		int test2 = ReadMemoryInt(phandle, (LPCVOID)0xb825e6);

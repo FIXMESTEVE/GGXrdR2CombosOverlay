@@ -168,6 +168,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComboRecipe.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -179,6 +180,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\rev2-wakeup-tool\GGXrdWakeupDPUtilCppWrapper\ReversalToolWrapper.h" />
     <ClInclude Include="..\..\include\IndiciumPlugin.h" />
+    <ClInclude Include="ComboRecipe.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
@@ -196,9 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Indicium-ImGui.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\..\..\rev2-wakeup-tool\Debug\GGXrdWakeupDPUtilCppWrapper.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

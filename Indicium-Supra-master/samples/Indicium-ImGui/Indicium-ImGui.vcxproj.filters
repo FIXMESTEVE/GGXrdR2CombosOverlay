@@ -16,6 +16,9 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{a97ef53a-9564-4181-9e5e-6c67d845345b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{31e153d3-3656-4aa1-a875-44663b759406}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui_impl_dx11.cpp">
@@ -38,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComboRecipe.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +86,9 @@
     <ClInclude Include="..\..\..\..\rev2-wakeup-tool\GGXrdWakeupDPUtilCppWrapper\ReversalToolWrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ComboRecipe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -88,8 +97,5 @@
     <ResourceCompile Include="Indicium-ImGui.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\..\..\rev2-wakeup-tool\Debug\GGXrdWakeupDPUtilCppWrapper.lib" />
   </ItemGroup>
 </Project>
