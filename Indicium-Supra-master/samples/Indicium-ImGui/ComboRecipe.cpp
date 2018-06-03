@@ -5,8 +5,8 @@
 
 ComboRecipe::ComboRecipe(unsigned char * comboData, int slotNr)
 {
-	int32_t head_addr = *reinterpret_cast<int32_t*>(comboData + slotNr * SLOT_DATA_SIZE);
-	chrCode = (CharacterCode)head_addr;
+	int32_t chrCodeInt = *reinterpret_cast<int32_t*>(comboData + slotNr * SLOT_DATA_SIZE);
+	chrCode = (CharacterCode)chrCodeInt;
 	unsigned char* first = comboData + slotNr * SLOT_DATA_SIZE + SLOT_CHARCODE_SIZE;
 	size_t length = SLOT_DATA_SIZE - SLOT_CHARCODE_SIZE;
 	std::memcpy(first, MoveData, length);
