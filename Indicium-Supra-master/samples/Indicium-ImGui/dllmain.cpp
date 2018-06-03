@@ -44,6 +44,8 @@ using Poco::Path;
 //my own includes
 #include <iostream>     // std::cout
 #include <sstream>      // std::stringstream
+#include "ComboRecipeManager.h"
+#include "ComboRecipe.h"
 
 //CppWrapper includes
 //#include <C:\Work\rev2-wakeup-tool\GGXrdWakeupDPUtilCppWrapper\ReversalToolWrapper.h>
@@ -414,19 +416,24 @@ void RenderScene()
 			func();
 		}
 		*/
-
+		ComboRecipe* recipe = NULL;
 		if (ImGui::Button("NUKE")) {
 			//ReversalToolWrapper* reversalTool = new ReversalToolWrapper();
 			//reversalTool->AttachToProcess();
 
 			//ComboRecipeManagerWrapper* c = new ComboRecipeManagerWrapper();
 			//c->ReadComboRecipes();
+
+			recipe = ComboRecipeManager::ReadComboRecipe(0);
+			int a = 0;
+			//std::vector<ComboRecipe*> recipes = ComboRecipeManager::ReadComboRecipes();
 		}
 		
 		int test2 = ReadMemoryInt(phandle, (LPCVOID)0xb825e6);
 		ImGui::Text("(LPCVOID)0xb825e6: %i", test2);
 		ImGui::Text("base address: 0x%p", my_hMod);
 		ImGui::Text("base address+offset: 0x%p", my_ptr);
+		ImGui::Text("chrCode: %p", recipe->chrCode);
     }
 
 	char* charCombo = "Unknown";

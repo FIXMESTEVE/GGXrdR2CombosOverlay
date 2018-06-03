@@ -35,7 +35,7 @@ public:
 	static const int SLOT_CHARCODE_SIZE = 4;
 	static const int SLOT_DATA_SIZE = 1028;
 	CharacterCode chrCode;
-	unsigned char* MoveData = new unsigned char[SLOT_DATA_SIZE - SLOT_CHARCODE_SIZE];
+	unsigned char* MoveData;
 
 	ComboRecipe(unsigned char* comboData, int slotNr = 0);
 	~ComboRecipe();
