@@ -169,6 +169,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ComboRecipe.cpp" />
+    <ClCompile Include="ComboRecipeManager.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
     <ClCompile Include="imgui\imgui_draw.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="..\..\..\..\rev2-wakeup-tool\GGXrdWakeupDPUtilCppWrapper\ReversalToolWrapper.h" />
     <ClInclude Include="..\..\include\IndiciumPlugin.h" />
     <ClInclude Include="ComboRecipe.h" />
+    <ClInclude Include="ComboRecipeManager.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />

@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <tlhelp32.h>
 
-unsigned char * ProcessMemoryManager::ReadMemory(int dataOffset, const int length, bool offsetIsPointer, int additionalOffset = 0)
+unsigned char * ProcessMemoryManager::ReadMemory(int dataOffset, const int length, bool offsetIsPointer, int additionalOffset)
 {
 	HMODULE hmod = GetModuleHandle(0);
 	SIZE_T bytesRead = 0;
@@ -13,7 +13,7 @@ unsigned char * ProcessMemoryManager::ReadMemory(int dataOffset, const int lengt
 	return data;
 }
 
-void ProcessMemoryManager::WriteMemory(int dataOffset, unsigned char * data, bool offsetIsPointer, int length, int additionalOffset = 0)
+void ProcessMemoryManager::WriteMemory(int dataOffset, unsigned char * data, bool offsetIsPointer, int length, int additionalOffset)
 {
 	HMODULE hmod = GetModuleHandle(0);
 	SIZE_T bytesWritten = 0;
@@ -23,8 +23,6 @@ void ProcessMemoryManager::WriteMemory(int dataOffset, unsigned char * data, boo
 
 int ProcessMemoryManager::GetOffsetFromPointer(HMODULE hmod, int pointerOffset)
 {
-	HMODULE hmod = GetModuleHandle(0);
-
 	SIZE_T bytesRead = 0;
 	unsigned char bufferAddress[4];
 
