@@ -7,7 +7,7 @@ class ProcessMemoryManager
 public:
 	static unsigned char* ReadMemory(DWORD dataOffset, const int length, bool offsetIsPointer, int additionalOffset = 0) 
 	{
-		HANDLE hProcess = GetModuleHandle(0);
+		HANDLE hProcess = GetBaseAddressByName();
 		SIZE_T bytesRead = 0;
 		unsigned char* data = new unsigned char[length];
 		DWORD offset = offsetIsPointer ? GetOffsetFromPointer(hProcess, dataOffset) : dataOffset;
@@ -29,7 +29,7 @@ public:
 		DWORD ptr = (DWORD)hmod + pointerOffset;
 		ReadProcessMemory(hmod, (void*)ptr, bufferAddress, 4, &bytesRead);
 
-		DWORD offset = bitsToInt(offset, bufferAddress, !is_big_endian());
+		DWORD offset = bitsToInt(offset, bufferAddress);
 
 		return offset;
 	}

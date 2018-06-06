@@ -8,7 +8,7 @@
 ComboRecipe::ComboRecipe(unsigned char * comboData, int slotNr)
 {
 	bool big_endian = is_big_endian();
-	int chrCodeInt = bitsToInt(chrCodeInt, comboData + slotNr * SLOT_DATA_SIZE, !big_endian);
+	int chrCodeInt = bitsToInt(chrCodeInt, comboData + slotNr * SLOT_DATA_SIZE);
 	chrCode = (CharacterCode)chrCodeInt;
 	unsigned char* first = comboData + slotNr * SLOT_DATA_SIZE + SLOT_CHARCODE_SIZE;
 	size_t length = SLOT_DATA_SIZE - SLOT_CHARCODE_SIZE;
