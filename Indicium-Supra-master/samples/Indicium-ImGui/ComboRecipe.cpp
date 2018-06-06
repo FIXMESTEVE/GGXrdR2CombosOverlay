@@ -1,18 +1,14 @@
+#pragma once
 #include "ComboRecipe.h"
 #include <cstdint>
 #include <vector>
 #include <sstream>
-
-int toInt(const unsigned char* bytes) {
-	return (int)(((unsigned char)bytes[3] << 24) |
-		((unsigned char)bytes[2] << 16) |
-		((unsigned char)bytes[1] << 8) |
-		(unsigned char)bytes[0]);
-}
+#include "utils.h"
 
 ComboRecipe::ComboRecipe(unsigned char * comboData, int slotNr)
 {
-	int32_t chrCodeInt = *reinterpret_cast<int32_t*>(comboData + slotNr * SLOT_DATA_SIZE);
+	bool big_endian = is_big_endian();
+	int chrCodeInt = bitsToInt(chrCodeInt, comboData + slotNr * SLOT_DATA_SIZE, !big_endian);
 	chrCode = (CharacterCode)chrCodeInt;
 	unsigned char* first = comboData + slotNr * SLOT_DATA_SIZE + SLOT_CHARCODE_SIZE;
 	size_t length = SLOT_DATA_SIZE - SLOT_CHARCODE_SIZE;

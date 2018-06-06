@@ -424,16 +424,16 @@ void RenderScene()
 			//ComboRecipeManagerWrapper* c = new ComboRecipeManagerWrapper();
 			//c->ReadComboRecipes();
 
-			recipe = ComboRecipeManager::ReadComboRecipe(0);
-			int a = 0;
-			//std::vector<ComboRecipe*> recipes = ComboRecipeManager::ReadComboRecipes();
+			//recipe = ComboRecipeManager::ReadComboRecipe(0);
+			//int a = 0;
+			std::vector<ComboRecipe*> recipes = ComboRecipeManager::ReadComboRecipes();
 		}
 		
 		int test2 = ReadMemoryInt(phandle, (LPCVOID)0xb825e6);
 		ImGui::Text("(LPCVOID)0xb825e6: %i", test2);
 		ImGui::Text("base address: 0x%p", my_hMod);
 		ImGui::Text("base address+offset: 0x%p", my_ptr);
-		ImGui::Text("chrCode: %p", recipe->chrCode);
+		//ImGui::Text("chrCode: %p", recipe->chrCode);
     }
 
 	char* charCombo = "Unknown";

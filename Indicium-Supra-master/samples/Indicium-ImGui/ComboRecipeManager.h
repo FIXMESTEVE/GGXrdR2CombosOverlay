@@ -42,6 +42,6 @@ public:
 		//delete data;
 	}
 private:
-	static const int SLOT1_OFFSET_POINTER = 0x00BD3E94;
+	static const DWORD SLOT1_OFFSET_POINTER = 0x00BD3E94;
 };
 

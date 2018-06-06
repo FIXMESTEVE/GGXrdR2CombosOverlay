@@ -1,34 +1,36 @@
 #pragma once
 #include <string>
 #include <windows.h>
+#include "utils.h"
 class ProcessMemoryManager
 {
 public:
-	static unsigned char* ReadMemory(int dataOffset, const int length, bool offsetIsPointer, int additionalOffset = 0) 
+	static unsigned char* ReadMemory(DWORD dataOffset, const int length, bool offsetIsPointer, int additionalOffset = 0) 
 	{
 		HANDLE hProcess = GetModuleHandle(0);
 		SIZE_T bytesRead = 0;
 		unsigned char* data = new unsigned char[length];
-		UINT_PTR offset = offsetIsPointer ? GetOffsetFromPointer(hProcess, dataOffset) : dataOffset;
+		DWORD offset = offsetIsPointer ? GetOffsetFromPointer(hProcess, dataOffset) : dataOffset;
 		ReadProcessMemory(hProcess, (void*)(offset + additionalOffset), data, length, &bytesRead);
 		return data;
 	}
-	static void WriteMemory(int dataOffset, unsigned char* data, bool offsetIsPointer, int length, int additionalOffset = 0) 
+	static void WriteMemory(DWORD dataOffset, unsigned char* data, bool offsetIsPointer, int length, int additionalOffset = 0) 
 	{
 		HANDLE hProcess = GetModuleHandle(0);
 		SIZE_T bytesWritten = 0;
 		UINT_PTR offset = offsetIsPointer ? GetOffsetFromPointer(hProcess, dataOffset) : dataOffset;
 		WriteProcessMemory(hProcess, (void*)(offset + additionalOffset), data, length, &bytesWritten);
 	}
-	static int GetOffsetFromPointer(HANDLE hmod, int pointerOffset)
+	static DWORD GetOffsetFromPointer(HANDLE hmod, DWORD pointerOffset)
 	{
 		SIZE_T bytesRead = 0;
 		unsigned char bufferAddress[4];
 
-		UINT_PTR ptr = (UINT_PTR)hmod + pointerOffset;
+		DWORD ptr = (DWORD)hmod + pointerOffset;
 		ReadProcessMemory(hmod, (void*)ptr, bufferAddress, 4, &bytesRead);
 
-		int32_t offset = *reinterpret_cast<int32_t*>(bufferAddress);
+		DWORD offset = bitsToInt(offset, bufferAddress, !is_big_endian());
+
 		return offset;
 	}
 
@@ -76,6 +78,6 @@ public:
 			}
 		}
 	}
-	
+
 private:
 };
